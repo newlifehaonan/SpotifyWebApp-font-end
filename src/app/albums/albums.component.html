@@ -1,0 +1,12 @@
+<div class="card">
+    <img style="height: 50%; width: 50%;" class="card-img-top" src="{{album?.img[0].url}}" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">Album Name: {{album?.album_name}}</h3>
+      <h4 class="card-text">Release Date: {{album?.release_date}}</h4>
+      <h4 style="background-color: pink; margin: 3px 0"class="card-text" *ngFor = "let item of items; let i = index">
+        <a [routerLink]="['/tracks',item.id]">{{i}}.{{item.track_name}}</a>
+      </h4>
+      
+    </div>
+</div>
+<button (click)="getBack()" class="btn btn-secondary">Back</button>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input name="first" [(ngModel)]="inputField" class="form-control mr-sm-2" type="search" placeholder="Search"
+      aria-label="Search">
+
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchTrack()">Search</button>
+  </form>
+</nav>
+
+<div *ngIf="tracks">
+  <div *ngIf="!tracks.length">
+    No tracks were found!
+  </div>
+
+  <div *ngIf="tracks.length">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 mb-2" *ngFor="let track of tracks; index as i" [attr.data-index]="i">
+        <div class="card">
+          <img style="width: 100%; height: 80%" class="card-img-top" src="{{track.albums.img[0].url}}" alt="Card image cap">
+          <div class="card-body">
+            <!-- this link to track component -->
+            <h5 class="card-title"><a [routerLink]="['/tracks',track.id]">{{track.track_name}}</a></h5>
+
+            <!-- this link to album component -->
+            <p class="card-text"><a [routerLink]="['/albums',track.albums.id]">{{track.albums.album_name}}</a></p>
+
+            <!-- this link to artist component -->
+            <p class="card-text"><a [routerLink]="['/artists',track.artists.id]">{{track.artists.name}}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

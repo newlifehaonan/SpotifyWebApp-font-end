@@ -1,0 +1,10 @@
+<div class="card">
+  <img class="card-img-top" src="{{artists?.img[0].url}}" alt="Card image cap">
+  <div class="card-body">
+    <h1 class="card-title">{{artists?.name}}</h1>
+    <h1>
+      {{artists?.genres}}
+    </h1>
+  </div>
+</div>
+<button (click)="getBack()" class="btn btn-secondary">Back</button>
